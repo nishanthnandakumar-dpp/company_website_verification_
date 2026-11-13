@@ -1,112 +1,95 @@
-/* ============================================================================
-   Traceyon — site stylesheet
-
-   Every value here comes from the scales in research/DESIGN_BRIEF_FOR_FABLE.md.
-   There are no one-off numbers: spacing is the 8-point list, type is the scale,
-   colour is the token set. If a value is needed that is not in a scale, the
-   scale is wrong and gets changed — not the rule.
-   ========================================================================== */
-
-/* ------------------------------------------------------------------ fonts --
-   Self-hosted, latin subset, SIL OFL 1.1. No CDN is contacted, ever.        */
-@font-face{font-family:'Newsreader';font-style:normal;font-weight:400;
-  font-display:swap;src:url('../fonts/newsreader-normal-400.woff2') format('woff2')}
-@font-face{font-family:'Newsreader';font-style:italic;font-weight:400;
-  font-display:swap;src:url('../fonts/newsreader-italic-400.woff2') format('woff2')}
-@font-face{font-family:'Inter';font-style:normal;font-weight:400;
-  font-display:swap;src:url('../fonts/inter-normal-400.woff2') format('woff2')}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;
-  font-display:swap;src:url('../fonts/jetbrainsmono-normal-400.woff2') format('woff2')}
-
-/* ----------------------------------------------------------------- tokens */
+/* Traceyon site.css. Built from site-src/site.css (the commented source): edit that file, then run site-tools/_build_css.py */
+@font-face{font-family:'Libre Caslon Display'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('../fonts/librecaslondisplay-400.woff2') format('woff2')}
+@font-face{font-family:'Libre Caslon Text'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('../fonts/librecaslontext-400.woff2') format('woff2')}
+@font-face{font-family:'Libre Caslon Text'; font-style:italic; font-weight:400; font-display:swap;
+  src:url('../fonts/librecaslontext-400-italic.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('../fonts/ibmplexsans-400.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans'; font-style:normal; font-weight:500; font-display:swap;
+  src:url('../fonts/ibmplexsans-500.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('../fonts/ibmplexmono-400.woff2') format('woff2')}
+@font-face{font-family:'Caslon Display Fallback'; src:local('Georgia'); font-style:normal; font-weight:400;
+  size-adjust:83.23%; ascent-override:116.54%; descent-override:31.96%; line-gap-override:0%}
+@font-face{font-family:'Caslon Text Fallback'; src:local('Georgia'); font-style:normal; font-weight:400;
+  size-adjust:107%; ascent-override:90.65%; descent-override:24.3%; line-gap-override:0%}
+@font-face{font-family:'Caslon Text Fallback'; src:local('Georgia Italic'), local('Georgia-Italic'); font-style:italic; font-weight:400;
+  size-adjust:105.74%; ascent-override:91.74%; descent-override:24.59%; line-gap-override:0%}
+@font-face{font-family:'Plex Sans Fallback'; src:local('Arial'); font-style:normal; font-weight:400;
+  size-adjust:100.98%; ascent-override:101.5%; descent-override:27.23%; line-gap-override:0%}
+@font-face{font-family:'Plex Sans Fallback'; src:local('Arial'); font-style:normal; font-weight:500;
+  size-adjust:103.23%; ascent-override:99.29%; descent-override:26.64%; line-gap-override:0%}
+@font-face{font-family:'Plex Mono Fallback'; src:local('Consolas'), local('Menlo'), local('Courier New'); font-style:normal; font-weight:400;
+  size-adjust:109.13%; ascent-override:93.92%; descent-override:25.2%; line-gap-override:0%}
 :root{
-  /* colour — every text pair measured, see the table in REPORT.md */
-  --black:#0E0E0E;          /* the ground                                   */
-  --charcoal:#191819;       /* raised surfaces                              */
-  --raised:#222120;         /* the one marked block                         */
-  --sand:#E7DCC8;           /* body text            14.22:1                 */
-  --sand-dim:#C3B9A6;       /* secondary text        9.94:1                 */
-  --copper:#C27A52;         /* key words, rules      5.70:1                 */
-  --copper-hi:#E8B9A0;      /* the italic line       10.92:1                */
-  --teal:#1F6377;           /* the logo's V, and nothing else               */
-  --teal-lift:#2A7D96;      /* status marks, focus    4.11:1                */
+  --black:#0E0E0E;
+  --charcoal:#191819;
+  --raised:#222120;
+  --sand:#E7DCC8;
+  --sand-dim:#C3B9A6;
+  --copper:#C27A52;
+  --copper-hi:#E8B9A0;
+  --teal:#1F6377;
+  --teal-lift:#2A7D96;
   --hair:rgba(231,220,200,.16);
   --hair-copper:rgba(194,122,82,.38);
-
-  /* type */
-  --serif:'Newsreader',Georgia,'Times New Roman',serif;
-  --grotesk:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
-
-  /* 8-point spacing — nothing outside this list */
+  --display:'Libre Caslon Display','Caslon Display Fallback',Georgia,'Times New Roman',serif;
+  --text:'Libre Caslon Text','Caslon Text Fallback',Georgia,'Times New Roman',serif;
+  --sans:'IBM Plex Sans','Plex Sans Fallback',Arial,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono','Plex Mono Fallback',ui-monospace,Consolas,monospace;
   --s1:8px;  --s2:16px; --s3:24px; --s4:32px; --s5:48px;
   --s6:64px; --s7:96px; --s8:128px; --s9:192px;
-
   --max:1200px; --gutter:24px;
   --ease-out:cubic-bezier(.16,.84,.44,1);
 }
-
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--black); color:var(--sand);
-  font-family:var(--serif); font-size:19px; line-height:1.6;
+  font-family:var(--sans); font-size:17px; line-height:1.62; font-weight:400;
   font-variant-numeric:tabular-nums lining-nums;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-h1,h2,h3{font-weight:400; margin:0; letter-spacing:-.018em}
+h1,h2,h3{font-weight:400; margin:0}
+h1,h2{font-family:var(--display); line-height:1.1; letter-spacing:-.01em}
+h3{font-family:var(--text); line-height:1.2; letter-spacing:-.005em}
+em{font-style:italic}
 p{margin:0}
 a{color:inherit; text-decoration:none}
 img,svg{display:block; max-width:100%}
 :focus-visible{outline:2px solid var(--teal-lift); outline-offset:3px; border-radius:2px}
-
 .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--s6)}
 .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gutter)}
 .skip{position:absolute; left:-9999px}
 .skip:focus{left:var(--s3); top:var(--s3); z-index:60; background:var(--raised);
-  color:var(--sand); padding:var(--s2) var(--s3); font-family:var(--grotesk); font-size:16px}
-
-/* small caps for the few labels */
-.label{font-family:var(--mono); font-size:15px; letter-spacing:.18em;
-  text-transform:lowercase; font-variant:small-caps; color:var(--sand-dim)}
-
-/* --------------------------------------------------------------- top bar */
+  color:var(--sand); padding:var(--s2) var(--s3); font-family:var(--sans); font-size:16px}
+.label,.frole,.cname,.pname{font-family:var(--sans); font-weight:500; font-size:13px; line-height:1.4;
+  letter-spacing:.08em; text-transform:uppercase}
+.label{color:var(--sand-dim)}
 .topbar{position:sticky; top:0; z-index:40; border-bottom:1px solid var(--hair-copper);
-  transition:background-color 200ms linear}
-.topbar.scrolled{background:rgba(10,10,10,.86); backdrop-filter:blur(10px)}
+  background:var(--black)}
 .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:88px;
   gap:var(--s3)}
-.topbar .lockup{height:34px; width:auto}   /* the metallic lockup, as on the card */
+.topbar .lockup{height:34px; width:auto}
 .topbar .markonly{display:none; height:24px; width:auto}
-.topbar nav{display:flex; gap:var(--s5); font-family:var(--grotesk); font-size:16px;
-  color:var(--sand-dim)}
-.topbar nav a{position:relative; padding-bottom:5px}
-.topbar nav a::after{content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
-  background:var(--copper); transform:scaleX(0); transform-origin:left}
-.topbar nav a:hover{color:var(--sand)}
-.topbar nav a[aria-current="page"]{color:var(--sand)}
-.topbar nav a:hover::after,.topbar nav a[aria-current="page"]::after,
-.topbar nav a.current::after{transform:scaleX(1)}
-
-/* ------------------------------------------------------------------ hero */
-/* Spacing and type come from the scales. Two values do not, and both are
-   measurements rather than spacing: the mark's top margin puts the top of the
-   T's bar on the cap line of the headline's first line, and the stage bleeds
-   12% past its column because that is the room the contact shadow needs. */
-.hero{--h1:clamp(34px, 3.6vw, 52px); --cap:.13;
+.topbar nav{display:flex; gap:var(--s5); font-family:var(--sans); font-weight:500; font-size:15px;
+  letter-spacing:.01em; color:var(--sand-dim)}
+.topbar nav a{padding-bottom:5px}
+.topbar nav a:hover,.topbar nav a:focus-visible,.topbar nav a[aria-current="page"]{color:var(--sand)}
+.topbar nav a[aria-current="page"]{background-size:100% 1px}
+.hero{--h1:clamp(36px, 3.9vw, 56px); --cap:.21;
   position:relative; min-height:calc(100vh - 88px); display:flex; align-items:center;
   overflow:hidden}
 .hero > .wrap{width:100%; padding-bottom:var(--s6)}
 .hero .grid{align-items:start}
 .hero .copy{grid-column:1 / span 7}
-.hero h1{font-size:var(--h1); line-height:1.14; max-width:19ch}
+.hero h1{font-size:var(--h1); line-height:1.1; max-width:19ch; letter-spacing:-.01em}
 .hero .line{display:block}
-.hero .checks{display:block; margin-top:var(--s3); font-style:italic; color:var(--copper-hi);
-  font-size:clamp(28px, 3.05vw, 44px); line-height:1.14}
-.hero .sub{margin-top:var(--s5); color:var(--sand-dim); max-width:46ch; text-wrap:pretty}
-
-/* The mark's face spans the five columns exactly: its right edge sits on the
-   same line as the navigation's last link. */
+.hero .checks{display:block; margin-top:var(--s3); font-family:var(--text); font-style:italic; color:var(--copper-hi);
+  font-size:clamp(26px, 2.75vw, 40px); line-height:1.12; letter-spacing:-.005em}
+.hero .sub{margin-top:var(--s5); color:var(--sand-dim); max-width:46ch; text-wrap:pretty; font-size:18px}
 .hero .art{grid-column:8 / span 5; position:relative; isolation:isolate;
   margin-top:calc(var(--h1) * var(--cap) - 8.9%)}
 .hero .stage{position:relative; margin:0 -12%; aspect-ratio:3251 / 2701}
@@ -114,10 +97,6 @@ img,svg{display:block; max-width:100%}
 .hero .stage img{width:100%; height:100%}
 .hero .stage > svg{left:9.677%; top:9.707%; width:80.645%; height:74.753%; overflow:visible}
 .hero .draw{display:none}
-
-/* a still pool of light on the ground, so the contact shadow has something to
-   fall on. The fine grain over it is card stock, and it is also what keeps a
-   gradient this dark from showing as rings. */
 .hero .art::before{content:""; position:absolute; z-index:-1;
   left:-32%; right:-32%; top:-24%; bottom:-24%; pointer-events:none;
   background:
@@ -126,18 +105,15 @@ img,svg{display:block; max-width:100%}
       rgba(25,24,25,.2) 74%, rgba(25,24,25,0) 100%);
   -webkit-mask-image:radial-gradient(closest-side, #000 55%, transparent 100%);
   mask-image:radial-gradient(closest-side, #000 55%, transparent 100%)}
-
 .hero .place{position:absolute; bottom:var(--s6); margin-left:var(--s3)}
-
 @media (max-width:900px){
-  /* 31px, but never so large that a headline line wraps on the narrowest
-     phones: the longest line fills the 20px-gutter column exactly at 31px/390px */
-  .hero{--h1:min(31px, calc((100vw - 40px) * .0885));
+  .hero{--h1:min(36px, calc((100vw - 40px) * .1));
     display:block; min-height:auto; padding:var(--s5) 0 var(--s7)}
   .hero > .wrap{padding-bottom:0}
   .hero .grid{display:grid}
   .hero h1{max-width:none}
-  .hero .checks{font-size:min(26px, calc((100vw - 40px) * .0742)); margin-top:var(--s2)}
+  .hero .checks{font-size:min(26px, calc((100vw - 40px) * .07)); margin-top:var(--s2)}
+  .hero .sub{font-size:17px}
   .hero .sub{margin-top:var(--s4)}
   .hero .place{position:static; margin:var(--s5) 0 0}
 }
@@ -145,22 +121,6 @@ img,svg{display:block; max-width:100%}
   .hero .grid{display:flex; flex-direction:column}
   .hero .art{order:-1; width:62%; margin:0 0 var(--s3)}
 }
-
-/* ----------------------------------------------------------------------------
-   The hero's entrance: PROOF. Drawn, stopped, checked piece by piece, raised.
-
-   The mark is set out in one hairline - bar, stem, V - and then everything
-   holds for a beat. Only after the stop is each piece checked into metal, in
-   the order it was drawn, and "We build the part that checks." arrives on the
-   exact frame the checking begins. Last, the finished mark lifts and its
-   shadow appears. About 3.4s, once, then nothing moves.
-
-   It is pure CSS. The class that switches it on is set by one line in the
-   page's head, before first paint, so the finished mark never flashes first;
-   and because the browser runs every step itself, nothing can be left hidden
-   if a script fails. Under reduced motion the class is never set and the
-   finished hero is shown at once.
-   ------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference){
   .hm .hero .line,.hm .hero .checks,.hm .hero .sub,.hm .hero .place{
     animation:h-rise 560ms var(--ease-out) backwards}
@@ -173,7 +133,6 @@ img,svg{display:block; max-width:100%}
   @keyframes h-rise{from{opacity:0; transform:translateY(12px)}}
   @keyframes h-in{from{opacity:0}}
   @keyframes h-out{to{opacity:0}}
-
   .hm .hero .draw{display:block}
   .hm .hero .draw path{fill:none; stroke-width:.62; stroke-linejoin:miter;
     stroke-dasharray:1; stroke-dashoffset:0}
@@ -186,253 +145,183 @@ img,svg{display:block; max-width:100%}
   .hm .hero .d-vee{animation:p-draw 800ms cubic-bezier(.5,0,.2,1) 1120ms backwards,
     h-out 340ms linear 2820ms forwards}
   @keyframes p-draw{from{stroke-dashoffset:1}}
-
-  /* the check: the bar left to right, then the stem downward... */
   .hm .hero .copper{animation:p-copper 700ms cubic-bezier(.5,0,.25,1) 2100ms backwards,
     p-lift 560ms var(--ease-out) 2880ms backwards}
   @keyframes p-copper{
     0%{clip-path:polygon(0 0, 0 0, 0 22%, 62% 22%, 62% 22%, 30% 22%, 30% 22%, 0 22%)}
     60%{clip-path:polygon(0 0, 100% 0, 100% 22%, 62% 22%, 62% 22%, 30% 22%, 30% 22%, 0 22%)}
     100%{clip-path:polygon(0 0, 100% 0, 100% 22%, 62% 22%, 62% 52%, 30% 52%, 30% 22%, 0 22%)}}
-  /* ...then the V, from its shoulders to its point */
   .hm .hero .teal{animation:p-teal 560ms cubic-bezier(.5,0,.25,1) 2500ms backwards,
     p-lift 560ms var(--ease-out) 2880ms backwards}
   @keyframes p-teal{from{clip-path:inset(0 0 72% 0)} to{clip-path:inset(0 0 9% 0)}}
   @keyframes p-lift{from{transform:scale(.992)}}
   .hm .hero .shadow{animation:h-in 560ms var(--ease-out) 2880ms backwards}
 }
-
-/* a quiet text link with an arrow */
-.tlink{position:relative; display:inline-flex; align-items:center; gap:10px; padding-bottom:7px}
-.tlink::before{content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
-  background:rgba(231,220,200,.3)}
-.tlink::after{content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
-  background:var(--copper); transform:scaleX(0); transform-origin:left}
-.tlink:hover{color:var(--copper-hi)}
-.tlink:hover::after{transform:scaleX(1)}
-.tlink svg{width:14px; height:14px}
-
-/* the single copper spine, drawn on scroll */
-.spine{position:absolute; left:50%; transform:translateX(-50%);
+.topbar nav a,.mail,.note a,footer a,.prose a{
+  background:linear-gradient(var(--copper),var(--copper)) 0 100% / 0 1px no-repeat;
+  background-origin:border-box; transition:background-size 150ms ease-out}
+.topbar nav a:hover,.topbar nav a:focus-visible,.mail:hover,.mail:focus-visible,.note a:hover,.note a:focus-visible,
+footer a:hover,footer a:focus-visible,.prose a:hover,.prose a:focus-visible{background-size:100% 1px}
+.btn{background:var(--raised); color:var(--sand); border:1px solid var(--hair-copper); transition:background-color 150ms ease-out}
+.btn:hover,.btn:focus-visible{background:var(--charcoal)}
+.spine{position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%);
   width:min(var(--max), 100%); pointer-events:none}
 .spine i{position:absolute; left:var(--s6); top:0; bottom:0; width:1px; display:block;
-  background:linear-gradient(to bottom, rgba(194,122,82,.6), rgba(194,122,82,0));
-  transform-origin:top}
-
-/* -------------------------------------------------------------- sections */
+  background:var(--copper); opacity:.6; transform-origin:top}
+.js .spine i{transform:scaleY(var(--p, 0))}
+#approach{position:relative}
+.secindex{display:none; position:fixed; left:var(--s3); top:50%; z-index:30; pointer-events:none;
+  font-family:var(--mono); font-weight:400; font-size:12px; line-height:1; letter-spacing:.06em;
+  color:var(--sand-dim); white-space:nowrap; writing-mode:vertical-rl;
+  transform:translateY(-50%) rotate(180deg)}
+@media (min-width:1024px){.secindex{display:block}}
+.secindex:empty{display:none}
 section{padding:var(--s7) 0}
 .page-head{padding:var(--s7) 0 var(--s5)}
-h2{font-size:40px; line-height:1.14; max-width:20ch; margin-bottom:var(--s5)}
+h2{font-size:44px; line-height:1.1; max-width:18em; margin-bottom:var(--s5)}
 .story{grid-column:2 / span 7}
 .story p + p{margin-top:var(--s2)}
-.story p{max-width:66ch}
-.lede{font-size:24px; line-height:1.5}
+.story > * + .anchored,.story > .anchored + p{margin-top:var(--s3)}
+.story p{max-width:30em}
+.lede{font-size:21px; line-height:1.55}
 .dim{color:var(--sand-dim)}
-
-/* margin notes, anchored to the paragraph they support */
 .anchored{position:relative}
 .anchored > .note{position:absolute; top:0;
   left:calc(100% + var(--gutter) + (100% / 7)); width:calc((100% / 7) * 3.6)}
-.note{font-family:var(--mono); font-size:15px; line-height:1.75; color:var(--sand-dim)}
+.note{font-family:var(--mono); font-size:13.5px; line-height:1.7; color:var(--sand-dim)}
 .note b{display:block; font-weight:400; color:var(--sand); margin-bottom:var(--s1)}
-.note .rule{width:40px; height:1px; background:var(--copper); margin-bottom:var(--s2);
-  transform-origin:left}
+.note .rule{width:40px; height:1px; background:var(--copper); margin-bottom:var(--s2)}
 .note a{border-bottom:1px solid var(--hair-copper)}
-
-/* principles — numbers hang into the margin */
 .principle{position:relative}
 .principle + .principle{margin-top:var(--s6)}
-.principle .n{position:absolute; left:-56px; top:8px; font-family:var(--mono); font-size:15px;
-  color:var(--copper); letter-spacing:.08em}
-.principle h3,.principle h2{font-size:25px; margin-bottom:var(--s2);
+.principle .n{position:absolute; left:-56px; top:8px; font-family:var(--mono); font-weight:400; font-size:14px;
+  color:var(--copper); letter-spacing:.04em}
+.principle h3,.principle h2{font-size:26px; margin-bottom:var(--s2);
   max-width:none}
-.principle p{color:var(--sand-dim); max-width:64ch}
-
+.principle p{color:var(--sand-dim); max-width:28.5em}
 .tl-section{padding-top:var(--s5)}
-/* the one illustration: the order of operations */
 .timeline{grid-column:2 / span 9}
 .timeline svg{width:100%; height:auto; overflow:visible}
-.tl-line{transform-origin:left}
-.tl-cap{font-family:var(--mono); font-size:15px; letter-spacing:.14em; text-transform:lowercase;
-  font-variant:small-caps; fill:var(--sand-dim)}
+.tl-cap{font-family:var(--sans); font-weight:500; font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+  fill:var(--sand-dim)}
 .tl-cap.key{fill:var(--copper-hi)}
-
-/* in practice */
 .point + .point{margin-top:var(--s6)}
-.point .first{font-size:23px; line-height:1.4}
-.point .body2{color:var(--sand-dim); margin-top:var(--s1); max-width:62ch; font-size:18px}
-.point .why{color:var(--sand-dim); margin-top:var(--s1); max-width:62ch; font-size:18px}
-.point .why em{font-style:italic; color:var(--sand)}
-
-/* the ledger line — the one deliberate break from the grid */
+.point .first{font-family:var(--text); font-size:24px; line-height:1.3; letter-spacing:-.005em}
+.point .body2{color:var(--sand-dim); margin-top:var(--s1); max-width:30em; font-size:16px}
+.point .why{color:var(--sand-dim); margin-top:var(--s1); max-width:30em; font-size:16px}
+.point .why em{font-style:normal; font-weight:500; color:var(--sand)}
 .ledger{margin:var(--s7) 0 0 -56px; padding:var(--s3) 0 var(--s3) var(--s3);
   border-left:1px solid var(--copper)}
-.ledger code{font-family:var(--mono); font-size:15px; color:var(--sand); white-space:nowrap}
+.ledger code{display:block; min-height:1.6em; font-family:var(--mono); font-weight:400; font-size:14px; line-height:1.6;
+  color:var(--sand); white-space:nowrap}
+.ledger .ts{color:var(--copper-hi)}
 .ledger .cap{margin-top:var(--s2)}
-
-/* the workshop: one of the page's main moments. Each project is named in mono,
-   given its one-line description, and then makes its case: CIPHER opens on a
-   pull quote in the serif, and both set out their points as a list with
-   copper markers. 128px and a hairline between the two. */
 .project + .project{margin-top:var(--s6); padding-top:var(--s6); border-top:1px solid var(--hair)}
-.project .pname{font-family:var(--mono); font-size:16px; letter-spacing:.2em;
+.project .pname{font-size:14px; color:var(--sand);
   margin-bottom:var(--s2); display:flex; align-items:baseline; gap:var(--s3); flex-wrap:wrap}
-.project .pstatus{font-family:var(--grotesk); font-size:15px; letter-spacing:0;
+.project .pstatus{font-family:var(--sans); font-weight:400; font-size:14px; letter-spacing:0; text-transform:none;
   color:var(--sand-dim); display:inline-flex; align-items:center; gap:10px}
 .project .dot{width:7px; height:7px; border-radius:50%; background:var(--teal-lift); flex:none}
 .project .dot.quiet{background:var(--sand-dim)}
-.project p{color:var(--sand-dim); max-width:64ch}
-.project .ptag{font-size:24px; line-height:1.5; color:var(--sand); margin-bottom:var(--s5)}
-.project .pull{font-size:34px; line-height:1.25; color:var(--sand); max-width:24ch;
+.project p{color:var(--sand-dim); max-width:30em}
+.project .ptag{font-family:var(--text); font-size:24px; line-height:1.4; color:var(--sand); margin-bottom:var(--s5)}
+.project .pull{font-family:var(--text); font-size:32px; line-height:1.25; letter-spacing:-.005em; color:var(--sand); max-width:24ch;
   padding-left:var(--s4); border-left:1px solid var(--copper); margin:0 0 var(--s5)}
-.project .pull em{display:block; margin-top:var(--s2); color:var(--copper-hi)}
-.project .points{list-style:none; margin:var(--s5) 0 0; padding:0; max-width:64ch}
+.project .pull em{display:block; margin-top:var(--s2); color:var(--copper-hi); font-style:italic}
+.project .points{list-style:none; margin:var(--s5) 0 0; padding:0; max-width:30em}
 .project .points li{position:relative; padding-left:var(--s4); color:var(--sand-dim)}
 .project .points li + li{margin-top:var(--s3)}
 .project .points li::before{content:""; position:absolute; left:0; top:.8em;
   width:var(--s2); height:1px; background:var(--copper)}
-.project .points b{font-weight:400; color:var(--sand)}
+.project .points b{font-weight:500; color:var(--sand)}
 .project .points + p{margin-top:var(--s5)}
-
-/* the founders. The names are the point of this section, so they are set in
-   the serif at headline weight rather than as small print. */
 .founder + .founder{margin-top:var(--s7); padding-top:var(--s7);
   border-top:1px solid var(--hair)}
 .fname{font-size:34px; line-height:1.15; color:var(--sand); margin-bottom:var(--s1)}
-.frole{font-family:var(--mono); font-size:15px; letter-spacing:.18em;
-  text-transform:lowercase; font-variant:small-caps; color:var(--copper);
-  margin-bottom:var(--s5)}
-.fnote{max-width:62ch}
-.fnote p{font-size:21px; line-height:1.6; color:var(--sand-dim)}
+.frole{color:var(--copper); margin-bottom:var(--s5)}
+.fnote{max-width:28.5em}
+.fnote p{font-size:17px; line-height:1.65; color:var(--sand-dim)}
 .fnote p + p{margin-top:var(--s3)}
-.fnote .sign{margin-top:var(--s5); font-style:italic; color:var(--copper-hi); font-size:22px}
-/* the pull quote: serif italic, a little larger than the note, a thin copper
-   rule to its left, 48px above and 32px below before the sign-off. It is a
-   blockquote with no inner paragraph, so the note's p rules never touch it. */
+.fnote .sign{margin-top:var(--s5); font-family:var(--text); font-style:italic; color:var(--copper-hi); font-size:22px}
 .fnote .fquote{margin:var(--s5) 0 var(--s4); padding-left:var(--s3);
   border-left:2px solid var(--copper); max-width:36ch;
-  font-size:24px; line-height:1.4; font-style:italic; color:var(--sand);
+  font-family:var(--text); font-size:24px; line-height:1.4; font-style:italic; color:var(--sand);
   text-wrap:pretty}
-
-/* contact: the name sits above the address, and the address is no longer vast */
 .contact .card{margin-top:var(--s6)}
-.contact .cname{font-family:var(--mono); font-size:15px; letter-spacing:.18em;
-  text-transform:lowercase; font-variant:small-caps; color:var(--sand);
-  margin-bottom:var(--s2)}
+.contact .cname{color:var(--sand); margin-bottom:var(--s2)}
 .contact .cwhere{margin-top:var(--s3)}
-.contact .cnext{margin-top:var(--s5)}   /* the second address, a clear step below the first */
-
-/* capabilities — hairlines, not boxes */
+.contact .cnext{margin-top:var(--s5)}
 .caps{border-top:1px solid var(--hair)}
 .caps .row{display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gutter);
   border-bottom:1px solid var(--hair); padding:var(--s6) 0}
 .caps h3{font-size:27px; margin-bottom:var(--s2)}
-.caps p{color:var(--sand-dim); max-width:60ch; font-size:18px}
+.caps p{color:var(--sand-dim); max-width:30em; font-size:16px}
 .caps .wide{grid-column:1 / span 7}
 .caps .n1{grid-column:1 / span 4}
 .caps .n2{grid-column:6 / span 4}
-
-/* the workshop log */
 .log{border-top:1px solid var(--hair)}
 .log .row{display:flex; align-items:baseline; gap:var(--s3); border-bottom:1px solid var(--hair);
   padding:var(--s4) 0}
-.log .nm{font-family:var(--mono); font-size:16px; letter-spacing:.2em; min-width:150px}
-.log .st{font-family:var(--grotesk); font-size:15px; color:var(--sand-dim);
+.log .nm{font-family:var(--sans); font-weight:500; font-size:14px; letter-spacing:.08em; text-transform:uppercase; min-width:150px}
+.log .st{font-family:var(--sans); font-size:14px; color:var(--sand-dim);
   display:inline-flex; align-items:center; gap:10px; min-width:195px}
 .log .dot{width:7px; height:7px; border-radius:50%; background:var(--teal-lift); flex:none}
-.log .txt{color:var(--sand-dim); font-size:18px}
-
-/* a plainly marked gap — never invented prose */
+.log .txt{color:var(--sand-dim); font-size:16px}
 .awaiting{background:var(--raised); border:1px solid var(--hair); padding:var(--s6);
-  color:var(--sand-dim); font-family:var(--grotesk); font-size:17px; min-height:190px;
+  color:var(--sand-dim); font-family:var(--sans); font-size:16px; min-height:190px;
   display:flex; align-items:center; justify-content:center; text-align:center}
-
-/* contact */
-.mail{font-size:clamp(22px, 2.4vw, 32px); line-height:1.2; color:var(--copper-hi);
-  letter-spacing:-.01em; display:inline-block; position:relative; padding-bottom:var(--s1)}
-.mail::after{content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
-  background:var(--copper); transform-origin:left}
-
+.mail{font-family:var(--text); font-size:clamp(22px, 2.4vw, 32px); line-height:1.2; color:var(--copper-hi);
+  letter-spacing:-.005em; display:inline-block; padding-bottom:var(--s1); border-bottom:1px solid var(--hair-copper)}
 footer{border-top:1px solid var(--hair); padding:var(--s5) 0 var(--s6)}
 footer .wrap{display:flex; justify-content:space-between; gap:var(--s3); flex-wrap:wrap;
-  font-family:var(--grotesk); font-size:15px; color:var(--sand-dim)}
+  font-family:var(--sans); font-size:14px; color:var(--sand-dim)}
+footer .wrap > div:first-child{font-family:var(--mono); font-size:13px}
 footer .flinks{display:flex; gap:var(--s3); flex-wrap:wrap}
 footer a{border-bottom:1px solid var(--hair)}
-footer a:hover{color:var(--sand)}
-
-/* prose pages */
+footer a:hover,footer a:focus-visible{color:var(--sand)}
 .prose{grid-column:2 / span 7}
-.prose h2{font-size:30px; margin:var(--s7) 0 var(--s3)}
+.prose h2{font-family:var(--text); font-size:28px; line-height:1.2; letter-spacing:-.005em; margin:var(--s7) 0 var(--s3)}
 .prose h2:first-child{margin-top:0}
-.prose p{max-width:66ch; color:var(--sand-dim)}
+.prose p{max-width:30em; color:var(--sand-dim)}
 .prose p + p{margin-top:var(--s3)}
-.prose strong{color:var(--sand); font-weight:400}
-
-/* ------------------------------------------------------------- the phone */
+.prose strong{color:var(--sand); font-weight:500}
 @media (max-width:900px){
-  body{font-size:17px}
+  body{font-size:16px}
   .wrap{padding:0 20px}
   .topbar .wrap{height:64px}
   .topbar .lockup{display:none}
   .topbar .markonly{display:block}
   .topbar nav{gap:var(--s3); font-size:14px}
   .spine{display:none}
-  section{padding:var(--s6) 0}      /* 128px between majors on a phone */
-  h2{font-size:27px; margin-bottom:var(--s4)}
+  #approach .spine{display:none}
+  section{padding:var(--s6) 0}
+  h2{font-size:30px; margin-bottom:var(--s4)}
   .fname{font-size:26px}
-  .fnote p{font-size:19px}
+  .fnote p{font-size:16px}
   .fnote .sign{font-size:20px}
   .fnote .fquote{font-size:21px; margin:var(--s4) 0 var(--s3); padding-left:var(--s2)}
   .founder + .founder{margin-top:var(--s6); padding-top:var(--s6)}
-  .project .pname{font-size:15px}
+  .project .pname{font-size:13px}
   .project + .project{margin-top:var(--s5); padding-top:var(--s5)}
   .project .ptag{font-size:20px; margin-bottom:var(--s4)}
   .project .pull{font-size:26px; padding-left:var(--s3); margin-bottom:var(--s4)}
   .project .points{margin-top:var(--s4)}
   .grid{display:block}
   .story,.timeline,.prose{grid-column:auto}
-  .lede{font-size:20px}
+  .lede{font-size:19px}
   .anchored > .note{position:static; width:auto; margin-top:var(--s4)}
   .principle{padding-left:40px}
   .principle .n{left:0}
-  .point .first{font-size:20px}
-  .point .why{font-size:17px}
+  .point .first{font-size:21px}
+  .point .why{font-size:15px}
+  .point .body2{font-size:15px}
   .ledger{margin-left:0}
-  .ledger code{font-size:12px; white-space:normal; word-break:break-all}
+  .ledger code{font-size:12px; white-space:normal; word-break:break-all; min-height:3.2em}
   .caps .row{display:block; padding:var(--s5) 0}
   .caps .row > div + div{margin-top:var(--s5)}
   .log .row{display:block}
   .log .st,.log .txt{margin-top:var(--s1); display:block}
-  .mail{font-size:29px; word-break:break-word}
+  .mail{font-size:27px; word-break:break-word}
   footer .wrap{display:block}
   footer .wrap div + div{margin-top:var(--s2)}
-}
-
-/* --------------------------------------------------------------- motion --
-   Gated behind no-preference, so anything not covered here is static by
-   default rather than needing an override to switch it off. Only opacity and
-   transform are animated. Nothing loops. */
-@media (prefers-reduced-motion: no-preference){
-  .js [data-rise]{opacity:0; transform:translateY(12px);
-    transition:opacity 400ms var(--ease-out), transform 400ms var(--ease-out)}
-  .js [data-rise="8"]{transform:translateY(8px); transition-duration:350ms}
-  .js [data-rise].in{opacity:1; transform:none}
-
-  .js .note .rule{transform:scaleX(0); transition:transform 300ms var(--ease-out)}
-  .js .note.in .rule{transform:scaleX(1)}
-  .js .principle .n{opacity:0; transition:opacity 300ms var(--ease-out)}
-  .js .principle.in .n{opacity:1}
-  .js .spine i{transform:scaleY(0)}
-  .js .mail::after{transform:scaleX(0); transition:transform 400ms var(--ease-out)}
-  .js .contact.in .mail::after{transform:scaleX(1)}
-  .js .tl-line{transform:scaleX(0); transition:transform 400ms var(--ease-out)}
-  .js .timeline.in .tl-line{transform:scaleX(1)}
-  .js .tl-stop{opacity:0; transition:opacity 250ms var(--ease-out)}
-  .js .tl-stop.in{opacity:1}
-  .js .tl-lock .shackle{transform:translateY(-3px); transition:transform 150ms var(--ease-out)}
-  .js .tl-lock.closed .shackle{transform:none}
-
-  .topbar nav a::after,.tlink::after{transition:transform 160ms var(--ease-out)}
-  .tlink svg{transition:transform 160ms var(--ease-out)}
-  .tlink:hover svg{transform:translateX(4px)}
 }

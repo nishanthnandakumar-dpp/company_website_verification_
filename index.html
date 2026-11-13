@@ -14,7 +14,8 @@
 <meta property="og:image" content="https://traceyon.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/company_website_verification_/assets/img/icon.svg" type="image/svg+xml">
-<link rel="preload" href="/company_website_verification_/assets/fonts/newsreader-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/company_website_verification_/assets/fonts/librecaslondisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/company_website_verification_/assets/fonts/ibmplexsans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/company_website_verification_/assets/css/site.css">
 <script>matchMedia("(prefers-reduced-motion: no-preference)").matches&&document.documentElement.classList.add("hm")</script>
 <script type="application/ld+json">
@@ -96,18 +97,17 @@
   </div>
 </div>
 
-<section id="problem" style="position:relative">
-  <div class="spine" style="top:-96px;height:640px" aria-hidden="true"><i></i></div>
+<section id="problem" data-sec="01" data-name="Historical data">
   <div class="wrap">
     <div class="grid">
-      <div class="story" data-stagger>
-        <h2 data-rise>Historical data will fool you if you let it</h2>
-        <p class="lede" data-rise="8">A result that looks strong on past data has two possible
+      <div class="story">
+        <h2>Historical data will fool you if you let it</h2>
+        <p class="lede">A result that looks strong on past data has two possible
           explanations. Either you found something real, or you found a pattern that history
           produced by accident. Both look the same on the chart.</p>
 
         <div class="anchored">
-          <p class="dim" data-rise="8">This is measured, not folklore. In 2016, McLean and
+          <p class="dim">This is measured, not folklore. In 2016, McLean and
             Pontiff followed 97 published market predictors in the Journal of Finance. Tested
             outside the sample where each was discovered, the same predictors measured 26% weaker.
             After publication, 58% weaker.</p>
@@ -117,7 +117,7 @@
         </div>
 
         <div class="anchored">
-          <p class="dim" data-rise="8">The mechanism is simple. The more variations of an idea you
+          <p class="dim">The mechanism is simple. The more variations of an idea you
             try, the more likely your most impressive result is the luckiest one rather than the
             best one. Bailey, Borwein, López de Prado and Zhu showed it plainly in the Notices of
             the American Mathematical Society in 2014: try enough, and an overfit result stops
@@ -127,11 +127,11 @@
             <a href="https://doi.org/10.1090/noti1105">doi.org/10.1090/noti1105</a></aside>
         </div>
 
-        <p class="dim" data-rise="8">AI has made this faster. A model can now produce a plausible
+        <p class="dim">AI has made this faster. A model can now produce a plausible
           analysis, a clean explanation and well-formatted code in seconds, and every part of it
           can be wrong in ways that are hard to see. The output reads like work that was checked.
           Often nothing checked it.</p>
-        <p class="dim" data-rise="8">Meanwhile decisions get made. Someone commits money, or
+        <p class="dim">Meanwhile decisions get made. Someone commits money, or
           capital, or a year of engineering, to a number that no one has actually verified. That
           is the problem we build against.</p>
       </div>
@@ -139,34 +139,35 @@
   </div>
 </section>
 
-<section id="approach">
+<section id="approach" data-sec="02" data-name="Verified, not assumed">
+  <div class="spine" aria-hidden="true"><i></i></div>
   <div class="wrap">
     <div class="grid">
       <div class="story">
-        <h2 data-rise>Verified, not assumed</h2>
-        <p class="lede" data-rise="8" style="margin-bottom:var(--s7)">So we built our work the
+        <h2>Verified, not assumed</h2>
+        <p class="lede" style="margin-bottom:var(--s7)">So we built our work the
           other way round. Four rules, and they have cost us results we would have liked to
           keep.</p>
 
-        <div class="principle" data-rise><span class="n">01</span>
+        <div class="principle"><span class="n">01</span>
           <h3>Decisions before results</h3>
           <p>The test is written down and fingerprinted before the data is read: what counts as a
             pass, what counts as a failure, what would make us drop the idea entirely. Once a
             result exists, the rule cannot bend to fit it, because the rule was sealed first.</p></div>
 
-        <div class="principle" data-rise><span class="n">02</span>
+        <div class="principle"><span class="n">02</span>
           <h3>Reproducible results</h3>
           <p>The same inputs and the same code give the same answer. Every output records the
             exact version of the data and the code that produced it, so anyone can run it again
             and get the same thing, or find out why they did not.</p></div>
 
-        <div class="principle" data-rise><span class="n">03</span>
+        <div class="principle"><span class="n">03</span>
           <h3>Every test counted</h3>
           <p>If we try twenty ideas, the record says twenty. Nothing gets quietly dropped for
             looking unpromising. The more we have tried, the stronger the next result has to be
             before we believe it.</p></div>
 
-        <div class="principle" data-rise><span class="n">04</span>
+        <div class="principle"><span class="n">04</span>
           <h3>Fail-safe by design</h3>
           <p>When something is missing, uncertain, or does not match what we expected, the system
             stops and says why. It does not guess, fill the gap, or carry on with a best effort.
@@ -176,7 +177,7 @@
   </div>
 </section>
 
-<section class="tl-section">
+<section class="tl-section" data-sec="02" data-name="Verified, not assumed">
   <div class="wrap">
     <div class="grid">
       <div class="timeline">
@@ -202,15 +203,15 @@
   </div>
 </section>
 
-<section>
+<section data-sec="03" data-name="In practice">
   <div class="wrap">
     <div class="grid">
       <div class="story">
-        <h2 data-rise>What that looks like in practice</h2>
-        <p class="dim" data-rise="8" style="margin-bottom:var(--s7)">Principles are cheap to
+        <h2>What that looks like in practice</h2>
+        <p class="dim" style="margin-bottom:var(--s7)">Principles are cheap to
           write. These come from the record.</p>
 
-        <div class="point" data-rise>
+        <div class="point">
           <p class="first">Every run is written to a record that cannot be quietly changed.</p>
           <p class="body2">Each run is appended to a hash-chained ledger, and the database itself
             refuses to let anything already written be altered or removed. If a number is
@@ -218,15 +219,15 @@
           <p class="why"><em>Why it matters:</em> an auditor, a regulator or a colleague can check
             for themselves, without taking our word for it.</p></div>
 
-        <div class="point" data-rise>
+        <div class="point">
           <p class="first">Our evaluations run alongside placebo versions built to find
             nothing.</p>
           <p class="body2">If the method finds something where nothing exists, we know the method
             is broken before we trust anything it says.</p>
-          <p class="why"><em>Why it matters:</em> a method that can never produce a negative isn't
+          <p class="why"><em>Why it matters:</em> a method that can never produce a negative isn’t
             measuring anything.</p></div>
 
-        <div class="point" data-rise>
+        <div class="point">
           <p class="first">2,864 automated tests, and 16 written stop reports where work halted
             instead of continuing.</p>
           <p class="body2">Every time the system was unsure, it stopped and wrote down why.</p>
@@ -234,7 +235,7 @@
             went wrong is worth as much as the result.</p></div>
 
         <div class="ledger">
-          <code>verified=true · append_only=SQLITE_TRIGGERS · chain_tip=8f854ef4…</code>
+          <code><span class="ln">verified=true · append_only=SQLITE_TRIGGERS · chain_tip=8f854ef4…</span> <span class="ts">· written=2026-11-13T09:17:55Z</span></code>
           <p class="cap label">A line from our own record.</p>
         </div>
       </div>
@@ -242,15 +243,15 @@
   </div>
 </section>
 
-<section>
+<section data-sec="04" data-name="Three kinds of work">
   <div class="wrap">
     <div class="grid"><div class="story">
-      <h2 data-rise>Three kinds of work, one standard</h2>
-      <p class="dim" data-rise="8" style="margin-bottom:var(--s6)">That discipline is the product.
+      <h2>Three kinds of work, one standard</h2>
+      <p class="dim" style="margin-bottom:var(--s6)">That discipline is the product.
         It shows up in three kinds of work.</p>
     </div></div>
     <div class="caps">
-      <div class="row" data-rise>
+      <div class="row">
         <div class="wide">
           <h3>Quantitative research systems</h3>
           <p>Research infrastructure that turns a question into a measured answer: the test
@@ -259,7 +260,7 @@
             argue with, not a chart.</p>
         </div>
       </div>
-      <div class="row" data-rise>
+      <div class="row">
         <div class="n1">
           <h3>Data engineering and infrastructure</h3>
           <p>Pipelines and storage for financial time series, built so the data can be trusted
@@ -278,15 +279,15 @@
   </div>
 </section>
 
-<section id="workshop">
+<section id="workshop" data-sec="05" data-name="Building now">
   <div class="wrap">
     <div class="grid"><div class="story">
-      <h2 data-rise>What we are building now</h2>
-      <p class="dim" data-rise="8" style="margin-bottom:var(--s7)">Two projects are in the
+      <h2>What we are building now</h2>
+      <p class="dim" style="margin-bottom:var(--s7)">Two projects are in the
         workshop. Both run on the same rule as everything else here: nothing counts until it has
         been checked.</p>
 
-      <div class="project" data-rise>
+      <div class="project">
         <p class="pname">CIPHER <span class="pstatus"><i class="dot" aria-hidden="true"></i>In
           development</span></p>
         <p class="ptag">An autonomous decision engine for finance.</p>
@@ -303,14 +304,14 @@
             anything it believes is tested on data it has never seen.</li>
           <li><b>It remembers every attempt.</b> The more it tries, the harder it becomes to
             impress, so luck has nowhere to hide.</li>
-          <li><b>It stops instead of guessing.</b> When something doesn't add up, it halts and
+          <li><b>It stops instead of guessing.</b> When something doesn’t add up, it halts and
             explains why, rather than carrying on.</li>
           <li><b>It answers to a permanent record.</b> Every decision is written to a
             tamper-evident ledger that can be checked years later.</li>
         </ul>
       </div>
 
-      <div class="project" data-rise>
+      <div class="project">
         <p class="pname">LONGVIEW <span class="pstatus"><i class="dot quiet"
           aria-hidden="true"></i>Active research</span></p>
         <p class="ptag">The same engine, aimed at the long game.</p>
@@ -322,7 +323,7 @@
             explanation for why it should exist.</li>
           <li><b>Fewer ideas, longer histories.</b> It studies a handful of ideas deeply instead of
             many quickly.</li>
-          <li><b>Built on CIPHER's failures.</b> Everything CIPHER rejected sharpens what LONGVIEW
+          <li><b>Built on CIPHER’s failures.</b> Everything CIPHER rejected sharpens what LONGVIEW
             tests from the start.</li>
         </ul>
         <p>It is early, and it is in testing. We will say more when there is something verified to
@@ -332,13 +333,13 @@
   </div>
 </section>
 
-<section id="founder">
+<section id="founder" data-sec="06" data-name="The founders">
   <div class="wrap">
     <div class="grid">
       <div class="story">
-        <h2 data-rise>The founders</h2>
+        <h2>The founders</h2>
 
-        <article class="founder" data-rise="8">
+        <article class="founder">
           <h3 class="fname">Nishanth Nandakumar</h3>
           <p class="frole">Founder &amp; CEO</p>
           <div class="fnote">
@@ -356,7 +357,7 @@
           </div>
         </article>
 
-        <article class="founder" data-rise="8">
+        <article class="founder">
           <h3 class="fname">Nanda Kumar Kannan</h3>
           <p class="frole">Co-founder &amp; managing director</p>
           <div class="fnote">
@@ -377,14 +378,14 @@
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact" data-sec="07" data-name="Contact">
   <div class="wrap">
     <div class="grid">
       <div class="story">
-        <h2 data-rise>Get in touch</h2>
-        <p class="dim" data-rise="8">If you work on this kind of problem, or you have one you want
+        <h2>Get in touch</h2>
+        <p class="dim">If you work on this kind of problem, or you have one you want
           checked properly, write to us.</p>
-        <div class="card" data-rise="8">
+        <div class="card">
           <p class="cname">Nishanth Nandakumar</p>
           <p><a class="mail" href="mailto:Nishanth@traceyon.com">Nishanth@traceyon.com</a></p>
           <p class="cname cnext">Traceyon</p>
@@ -410,6 +411,7 @@
     <div>Nothing on this website is financial or investment advice.</div>
   </div>
 </footer>
+<div class="secindex" id="secindex" aria-hidden="true"></div>
 <script src="/company_website_verification_/assets/js/site.js" defer></script>
 </body>
 </html>
