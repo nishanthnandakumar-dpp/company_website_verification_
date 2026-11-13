@@ -306,6 +306,13 @@ h2{font-size:40px; line-height:1.14; max-width:20ch; margin-bottom:var(--s5)}
 .fnote p{font-size:21px; line-height:1.6; color:var(--sand-dim)}
 .fnote p + p{margin-top:var(--s3)}
 .fnote .sign{margin-top:var(--s5); font-style:italic; color:var(--copper-hi); font-size:22px}
+/* the pull quote: serif italic, a little larger than the note, a thin copper
+   rule to its left, 48px above and 32px below before the sign-off. It is a
+   blockquote with no inner paragraph, so the note's p rules never touch it. */
+.fnote .fquote{margin:var(--s5) 0 var(--s4); padding-left:var(--s3);
+  border-left:2px solid var(--copper); max-width:36ch;
+  font-size:24px; line-height:1.4; font-style:italic; color:var(--sand);
+  text-wrap:pretty}
 
 /* contact: the name sits above the address, and the address is no longer vast */
 .contact .card{margin-top:var(--s6)}
@@ -375,6 +382,7 @@ footer a:hover{color:var(--sand)}
   .fname{font-size:26px}
   .fnote p{font-size:19px}
   .fnote .sign{font-size:20px}
+  .fnote .fquote{font-size:21px; margin:var(--s4) 0 var(--s3); padding-left:var(--s2)}
   .founder + .founder{margin-top:var(--s6); padding-top:var(--s6)}
   .project .pname{font-size:15px}
   .project + .project{margin-top:var(--s5); padding-top:var(--s5)}
